@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Welcome</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+
+<link rel="stylesheet" href="w.css">
+
+  <style>
+
+#myDIV {
+   
+    width: 2500px;
+    overflow: auto;
+}
+.button {
+    display: block;
+    width: 115px;
+    height: 25px;
+    background: #4E9CAF;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+}
+  </style>
+</head>
+
+<body onload = load()>
+    <a href = "/mainmenu"><h4>Go Back To Home</h4></a>
+  <script src="ang.js"></script>
+  <div ng-app="myApp" ng-controller="customersCtrl">
+   </br>
+	<h1 align = "center">University of Indore
+Devi Ahilya University, Indore
+</h1>
+<h2 align = "center">Annual Self-Assessment for the Performance Based Appraisal System (PBAS)</h2>
+<h3 align = "center"><b>CATEGORY II: CO-CURRICULAR, EXTENSION, PROFESSIONAL DEVELOPMENT  RELATED  ACTIVITIES </b></h3>
+	 </br>
+<form class = "form-horizontal" role = "form" method = "post" action = "/respcattwo">
+
+<input type = "hidden" id = "mytext" name = "userid"></input>
+<input type = "hidden" id = "isupdate" name = "isupdateid" value = "false"></input>    
+
+
+   <div class = "form-group">
+      <label for = "Name" class = "col-sm-2 control-label">Session</label>
+    
+      <div class = "col-sm-8">
+<select ng-model="selectedCar" id = "session" class="form-control" name = "session_dropdown" ng-options="y.displaylike for (x, y) in session_data" onchange = "ondropdownchange()">
+</select> 
+
+</div>
+</div>
+
+
+
+<input type = "hidden" id = "ses" ng-model = 'selectedCar.displaylike' name = "session"></input>
+<input type = "hidden"  value  = {{data[0].session}} id = "sess"></input>
+
+
+
+   <div class = "form-group">
+      <label for = "CATEGORY  " required class = "col-sm-2 control-label">CATEGORY  </label>
+     <div class = "col-sm-8">
+    
+      <select class="form-control" name = "category" id = "seso"  value  = {{data[0].category}} required>
+      <option value="CO-CURRICULAR">CO-CURRICULAR</option>
+      <option value="EXTENSION">EXTENSION</option>
+      <option value="PROFESSIONAL DEVELOPMENT  RELATED  ACTIVITIES">PROFESSIONAL DEVELOPMENT  RELATED  ACTIVITIES </option>
+    </select>
+    <input type = "hidden"  value  = {{data[0].category}} id = "sesso"></input>
+      </div>
+   </div>  
+
+
+
+    <div class="col-md-9 col-md-offset-2">
+      
+      
+       <div class = "form-group">
+          <label for = "Type of Activity  " required class = "col-sm-2 control-label">Type of Activity  </label>
+         <div class = "col-sm-8">
+        
+          <select class="form-control" required id = "sestw"  name = "activity" value  = {{data[0].activity}}>
+          <option value="Extension">Extension</option>
+          <option value="Co-curricular">Co-curricular </option>
+          <option value="Field based activities">Field based activities</option>
+          <option value="Contribution to Corporate Life">Contribution to Corporate Life</option>
+          <option value="Management of the Institution">Management of the Institution</option>
+          <option value="Professional Development Activities">Professional Development Activities</option>
+          <option value="other">other</option>
+     </select>
+        <input type = "hidden"  value  = {{data[0].activity}} id = "sesstw"></input>
+          </div>
+       </div>  
+        
+
+  
+        <div class = "form-group">
+            <label for = "description" required class = "col-sm-2 control-label">description</label>
+           <div class = "col-sm-8">
+               <input type = "text" required class = "form-control" name = "description" placeholder = "Enter description" value  = {{data[0].description}} >
+            </div>
+      </div> 
+
+
+
+
+
+
+
+
+
+
+
+   <div class = "form-group">
+      <label for = "duration_type  " required class = "col-sm-2 control-label">Duration Type  </label>
+     <div class = "col-sm-8">
+
+
+
+
+
+      <select  class="form-control"  name = "duration_type" required id = "dt" value  = {{data[0].duration_type}}> 
+      <option value="hourly">hourly</option>
+      <option value="weekly">weekly</option>
+      <option value="Semester">Semester</option>
+      <option value="yearly">yearly</option>
+    </select>
+    <input type = "hidden"  value  = {{data[0].duration_type}} id = "sessth"></input>
+      </div>
+   </div>  
+
+
+
+
+
+
+        <div class = "form-group">
+            <label for = "Duration" required class = "col-sm-2 control-label">Duration</label>
+           <div class = "col-sm-8">
+               <input type = "number" required class = "form-control" name = "duration" id = "duration" placeholder = "Enter Duration" value  = {{data[0].duration}} >
+            </div>
+      </div>  
+        <div class = "form-group">
+            <label for = "API Score" required class = "col-sm-2 control-label">API Score</label>
+           <div class = "col-sm-8">
+            <input type = "number" required class = "form-control" name = "api_score" id = "api" placeholder = "Enter API Score " value  = {{data[0].api_score}}>
+            </div>
+      </div>  
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+   </br>
+   <div  class = "form-group">
+      <div class = "col-sm-offset-6 col-sm-3">
+
+         <button type = "submit" class = "btn btn-default" onclick = subclick()>Submit</button>
+     <!--     <a href = "/tablecattwo" class = "butto">Tabular View</a> -->
+      </div>
+   </div>  
+</form>
+</br>
+</br>
+
+
+
+
+<!-- starting table code -->
+
+<h3>Your Data</h3>
+</br>
+
+<label class="w3-label w3-text-blue"><b>Keyword</b></label>
+<input class="w3-input w3-border" type="text" ng-model="test" placeholder = "String To serch here">
+
+</br>
+
+
+
+
+    
+
+<table  id ="tblCustomers"  class="w3-table w3-striped w3-bordered w3-border" style="width:auto" > 
+ <tr class="w3-light-grey w3-hover-red">
+     <th>Session</th>   
+    <th>CATEGORY</th>
+    <th>Type of Activity</th>
+    <th>description</th>
+    <th>Duration Type</th>
+    <th>Duration</th>
+    <th>API Score</th>
+    <th>Update</th>
+    <th>Delete</th>
+  
+
+ </tr>
+  <tr onclick="myFunction(this)"  class="w3-hover-blue" ng-repeat="x in names | filter:test ">
+      <td>{{ x.session }}</td>
+    <td>{{ x.category }}</td>
+    <td>{{ x.activity }}</td>
+    
+    <td>{{ x.description }}</td>
+    <td>{{ x.duration_type }}</td>
+    <td>{{ x.duration }}</td>
+    <td>{{ x.api_score }}</td>
+
+
+
+<!-- 
+ <td><a ng-href="http://localhost:3000/html/home.html?val=" + {{x.telephone}}>Update</a></td> -->
+    <td><a ng-href="/updatecattwo/{{x.username}}/{{ x.category }}/{{ x.activity }}/{{x.description}}/{{ x.duration_type }}/{{ x.duration }}/{{ x.api_score }}" onclick = "makeupdate()">Update</a></td> 
+    <td><a ng-href="updatecattwo/{{x.username}}/{{ x.category }}/{{ x.activity }}/{{ x.duration_type }}/{{ x.duration }}/{{ x.api_score }}" onclick="return confirm('Are you sure?')" >Delete</a></td> 
+ <!--    <td><a href = "http://localhost:3000/html/home.html?val=" + {{x.telephone}} >update </a></td> -->
+
+  
+  </tr>
+</table>
+</br>
+</br>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('customersCtrl', function($scope, $http) {
+    $http.get("/data/viewdatacattwo")
+    
+    .then(function (response) {$scope.names = response.data;});
+    app.toDate = function(h) {
+    return ("h")
+  };
+
+
+  $http.get("/data/viewcattwodata/"+getParameterByName('username')+"/"+getParameterByName('category')+"/"+getParameterByName('activity')+"/"+getParameterByName('description')+"/"+getParameterByName('duration_type')+"/"+getParameterByName('duration')+"/"+getParameterByName('api_score')).then
+/* $http.get("http://localhost:3000/data/viewcattwodata/"+getParameterByName('username')+"/"+getParameterByName('category')+"/"+getParameterByName('activity')+"/"+getParameterByName('duration_type')+"/"+getParameterByName('duration')+"/"+getParameterByName('api_score')).then
+  */
+
+/*==> $http.get("http://localhost:3000/data/viewcattwodata/yash/EXTENSION/Management%20of%20the%20Institution/554/hourly/0/012").then*/
+  
+/*http://localhost:3000/data/viewcattwodata/yash/EXTENSION/Management%20of%20the%20Institution/554/hourly/0/0*/
+
+/*app.get('/data/viewcattwodata/:username/:category/:activity/:description/:duration_type/:duration/:api_score', function(req, res, next) {*/
+
+
+
+
+  (
+    function(res){
+      $scope.data = res.data;
+      console.log(res.data);
+    },
+    function (res) {
+      $scope.name = "error"+res.status+" ";
+
+    }
+    );
+
+
+
+
+      $http.get("/data/session").then
+      (
+        function(res){
+          $scope.session_data = res.data;
+
+       
+          
+        },
+        function (res) {
+          $scope.name = "error"+res.status+" ";
+
+        }
+        );
+
+
+
+
+
+});
+</script>
+
+
+
+
+
+
+<!--Closing of anglar js div  -->
+</div>
+
+
+<script>
+
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+function a(){
+  var v = getParameterByName('val')
+
+  document.getElementById("mytext").value = v;
+  
+   document.getElementById("uid").value = v;
+
+
+}
+
+
+
+
+function ondropdownchange()
+{
+  var e = document.getElementById("session");
+var strUser = e.options[e.selectedIndex].text;
+document.getElementById("ses").value = strUser;
+
+}
+
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length,c.length);
+        }
+    }
+    return "";
+}
+
+
+function checkparam(){
+  var field = 'username';
+var url = window.location.href;
+if(url.indexOf('?' + field + '=') != -1)
+    return true;
+else if(url.indexOf('&' + field + '=') != -1)
+    return true;
+return false
+}
+
+
+function makeupdate()
+{
+
+
+if(document.getElementById("api").value  == "")
+{
+  document.getElementById("api").value = 0
+} 
+if(document.getElementById("duration").value  == "")
+{
+  document.getElementById("duration").value = 0
+} 
+
+
+
+
+
+ document.cookie = "isupdate=true"
+ document.getElementById("isupdate").value = "true";
+
+}
+function load()
+{
+
+  document.cookie = "username=;";
+
+  if( getCookie("isupdate")==="true"){
+
+
+ document.cookie = "isupdate=true"
+ document.getElementById("isupdate").value = "true";
+
+
+setTimeout(function() {
+
+
+var a = document.getElementById("sess").value;
+b = document.getElementById("session");
+ //alert(v);
+document.getElementById("ses").value = document.getElementById("sess").value
+setoption(b,a);
+var c = document.getElementById("sesso").value;
+d = document.getElementById("seso");
+setoption(d,c);
+var e = document.getElementById("sesstw").value;
+f = document.getElementById("sestw");
+setoption(f,e);
+var g = document.getElementById("sessth").value;
+h = document.getElementById("dt");
+setoption(h,g);
+
+
+
+function setoption(s,v)
+{
+
+
+
+    for ( var i = 0; i < s.options.length; i++ ) {
+      //alert(s.options[i].label + "and" + v);
+        if ( s.options[i].label == v ) {
+            s.options[i].selected = true;
+            return;
+        }
+    }
+}
+  
+   }, 500);
+
+
+
+  }
+  else
+  {
+ document.cookie = "isupdate=false"
+ document.getElementById("isupdate").value = "false";
+  }
+    
+
+
+}
+function subclick()
+{
+
+
+if(document.getElementById("api").value  == "")
+{
+  document.getElementById("api").value = 0
+} 
+if(document.getElementById("duration").value  == "")
+{
+  document.getElementById("duration").value = 0
+} 
+       
+       
+
+
+
+  if(getCookie("isupdate")==="true"){
+     document.getElementById("isupdate").value = "true";
+  }
+  else
+  {
+    document.getElementById("isupdate").value = "false";
+  }
+ document.cookie = "isupdate=false"
+ 
+ //alert(document.cookie);
+}
+</script>
+</body>
+</html>
+

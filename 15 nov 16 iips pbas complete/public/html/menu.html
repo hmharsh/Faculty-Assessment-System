@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="ang.js"></script>
+<script src="angular.min.js.map"></script>
+
+<head>
+  <style>
+  a{
+     font-size: 150%;
+  }
+a:hover {
+/*     background-color: yellow; */
+   font-size: 200%;
+
+}
+a:link {
+    text-decoration: none;
+   /* font-size: 130%;  */
+}
+
+a:visited {
+    text-decoration: none;
+   font-size: 130%; 
+}
+#logout{
+ font-size: 130%; 
+}
+
+#logout:hover{
+ font-size: 200%; 
+}
+
+a:active {
+    text-decoration: underline;
+     /*  font-size: 130%; */
+}
+body {
+     background-color: rgb(204, 255, 230);
+   }
+</style>
+  <title>Menu</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+
+</head> 
+<body align = "center" onload = load()>
+<h1 align = "center">University of Indore
+Devi Ahilya University, Indore
+</h1>
+<h2 align = "center">Annual Self-Assessment for the Performance Based Appraisal System (PBAS)</h2>
+
+  <script>
+
+var app = angular.module('myApp', []);
+app.controller('customersCtrl', function($scope, $http) {
+    $http.get("/data/viewdata")
+    
+    .then(function (response) {$scope.names = response.data;});
+    app.toDate = function(h) {
+    return ("h")
+  };
+});
+function abc(){
+  //var name = session.getAttribrute("user");
+  alert(localStorage.getItem("user"));
+}
+
+</script>
+
+
+
+<div ng-app="myApp" ng-controller="customersCtrl">
+<div class="container"></br>
+  <h3>Select Your Choice</h3></br>
+<a href ="/genupdate" >General Information</a></br></br>
+<!-- <a ng-href="/{{req.session.user.user}}">General Information</a> -->
+<!-- <input type = "button" onclick = "abc()" value = "tryyyyyy"></input> -->
+  <a href= "/cattwo" class = "lin">Category II</a></br></br>
+  <a href = "/catthree">Category III</a></br></br>
+ <a href = "/home">Manage Account</a></br></br>
+<form method = "POST" action="/logout">
+<input type = "submit" value = "logout" id = "logout"></input>
+</form>
+</div>
+
+</div>
+<script>
+  function load()
+  {
+     document.cookie = "isupdate=false";
+  }
+</script>
+</body>
+</html>
+

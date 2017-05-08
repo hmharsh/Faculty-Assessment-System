@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Welcome</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="w.css">
+  <style>
+.button {
+    display: block;
+    width: 115px;
+    height: 25px;
+    background: #4E9CAF;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+}
+  </style>
+</head>
+<body onload = load()>
+      <a href = "/mainmenu"><h4>Go Back To Home</h4></a>
+  <script src="ang.js"></script>
+  <div ng-app="myApp" ng-controller="customersCtrl">
+   
+   </br>
+	<h1 align = "center">University of Indore
+Devi Ahilya University, Indore
+</h1>
+<h2 align = "center">Annual Self-Assessment for the Performance Based Appraisal System (PBAS)</h2>
+<h3 align = "center"><b>CATEGORY   III : RESEARCH, PUBLICATION AND ACADEMIC CONTRIBUTION</b></h3>
+	 </br>
+<form class = "form-horizontal" role = "form" method = "post" action = "/catthreeone">
+
+
+    
+   <div class = "form-group">
+       <div class = "form-group">
+<input type = "hidden" id = "mytext" name = "userid"></input>
+<input type = "hidden" id = "isupdate" name = "isupdateid" value = "false"></input>    
+
+
+           <label for = "Name" class = "col-sm-2 control-label">Session</label>
+              
+                <div class = "col-sm-8">
+          <select ng-model="selectedCar" id = "session" class="form-control" name = "session_dropdown" ng-options="y.displaylike for (x, y) in session_data" onchange = "ondropdownchange()">
+          </select> 
+
+          </div>
+          </div>
+<input type = "hidden" id = "ses" ng-model = 'selectedCar.displaylike' name = "session"></input>
+<input type = "hidden"  value  = {{data[0].session}} id = "sess"></input>
+
+
+
+
+      <label for = "CATEGORY  " required class = "col-sm-2 control-label">CATEGORY  </label>
+     <div class = "col-sm-8">
+    
+      <select class="form-control" name = "category" id = "catt" required>
+      <option value="Published_Papers_in_Journals">Published Papers in Journals</option>
+      <option value="Articles_or_Chapters_published_in_Books ">Articles/ Chapters published in Books</option>
+     
+    </select>    
+    <input type = "hidden"  value  = {{data[0].category}} id = "sesso"></input>
+      </div>
+   </div>  
+
+
+
+    <div class="col-md-9 col-md-offset-2">
+      
+      
+   
+
+
+
+
+
+
+      <div class = "form-group">
+            <label for = "title" required class = "col-sm-2 control-label">Title with page number
+        </label>
+           <div class = "col-sm-8">
+               <input type = "text" required class = "form-control" value  = {{data[0].title}} name = "title" placeholder = "Enter Title with page no. ">
+            </div>
+      </div>
+
+      <div class = "form-group">
+            <label for = "issn_isbn" required class = "col-sm-2 control-label">ISSN/ISBN No. 
+
+        </label>
+           <div class = "col-sm-8">
+               <input type = "text"  value  = {{data[0].issn_isbn}} class = "form-control" id = "issn" name = "issn_isbn" placeholder = "Enter ISSN/ISBN No. ">
+            </div>
+      </div>      
+
+      <div class = "form-group">
+            <label for = "total_Coauthors"  class = "col-sm-2 control-label">No. of Co-authors 
+total_Coauthors
+        </label>
+           <div class = "col-sm-8">
+               <input type = "number"  class = "form-control" name = "total_Coauthors" id = "coauthors"  value  = {{data[0].total_Coauthors}}  placeholder = "Enter No. of Co-authors">
+            </div>
+      </div>      
+      <div class = "form-group">
+            <label for = "peer_reviewed"  class = "col-sm-2 control-label">Whether peer reviewed. Impact factor, if any
+ 
+
+        </label>
+           <div class = "col-sm-8">
+               <input type = "text"  class = "form-control" name = "peer_reviewed" id = "peer" value  = {{data[0].peer_reviewed}}  placeholder = "Whether peer reviewed. Impact factor, if any">
+            </div>
+      </div>  
+      <div class = "form-group">
+            <label for = "main_author"  class = "col-sm-2 control-label">Whether you are the main author  
+
+        </label>
+           <div class = "col-sm-8">
+               <input type = "text"  class = "form-control" name = "main_author" id = "main" value  = {{data[0].main_author}}  placeholder = "Whether you are the main author  ">
+            </div>
+      </div>      
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class = "form-group">
+            <label for = "API Score" required class = "col-sm-2 control-label">API Score</label>
+           <div class = "col-sm-8">
+               <input type = "number"  class = "form-control" name = "api_score" id = "api" value  = {{data[0].api_score}} placeholder = "Enter API Score ">
+            </div>
+      </div>  
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+   </br>
+   <div  class = "form-group">
+      <div class = "col-sm-offset-6 col-sm-3">
+         <button type = "submit" onclick = subclick() class = "btn btn-default">Submit</button>
+       
+      </div>
+   </div>
+
+
+  
+</form>
+
+</br>
+</br>
+
+
+
+
+<!-- starting table code -->
+
+<h3>Your Data</h3>
+</br>
+
+<label class="w3-label w3-text-blue"><b>Keyword</b></label>
+<input class="w3-input w3-border" type="text" ng-model="test" placeholder = "String To serch here">
+
+</br>
+
+
+
+
+
+
+
+<table  id ="tblCustomers"  class="w3-table w3-striped w3-bordered w3-border" style="width:auto" > 
+ <tr class="w3-light-grey w3-hover-red">
+     <th>Session</th>   
+    <th>CATEGORY</th>
+    <th>title with page number</th>
+    <th>issn_isbn</th>
+    <th>total_Coauthors</th>
+    <th>peer_reviewed</th>
+    <th>main_author</th>
+    <th>api_score</th>
+     <th>Update</th>
+      <th>Delete</th>
+  
+
+ </tr>
+  <tr onclick="myFunction(this)"  class="w3-hover-blue" ng-repeat="x in names | filter:test">
+      <td>{{ x.session}}</td>
+    <td>{{ x.category}}</td>
+    <td>{{ x.title}}</td>
+    <td>{{ x.issn_isbn }}</td>
+    <td>{{ x.total_Coauthors}}</td>
+    <td>{{ x.peer_reviewed }}</td>
+    <td>{{ x.main_author}}</td>
+    <td>{{ x.api_score}}</td>
+
+
+
+<!-- 
+ <td><a ng-href="http://localhost:3000/html/home.html?val=" + {{x.telephone}}>Update</a></td> -->
+    <td><a ng-href="/updatecatthreeone/{{x.username}}/{{ x.category }}/{{ x.title}}/{{ x.issn_isbn}}/{{ x.total_Coauthors}}/{{ x.peer_reviewed }}/{{ x.main_author}}/{{ x.api_score }}" onclick = "makeupdate()" onclick = "updateclicked()">Update</a></td> 
+    <td><a ng-href="updatecatthreeone/{{x.username}}/{{ x.category}}/{{ x.title}}/{{ x.issn_isbn}}/{{ x.total_Coauthors}}/{{ x.peer_reviewed }}/{{ x.main_author}}/{{ x.api_score}}" onclick="return confirm('Are you sure?')">Delete</a></td> 
+ <!--    <td><a href = "http://localhost:3000/html/home.html?val=" + {{x.telephone}} >update </a></td> -->
+
+  
+  </tr>
+</table>
+</br>
+</br>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('customersCtrl', function($scope, $http) {
+  /*  $http.get("http://localhost:3000/data/viewdatacatthreeone")*/
+      $http.get("/data/viewdatacatthreeone")
+    .then(function (response) {$scope.names = response.data;});
+    app.toDate = function(h) {
+    return ("h")
+  };
+
+
+
+  $http.get("/data/viewcatthreeonedata/"+getParameterByName('username')+"/"+getParameterByName('category')+"/"+getParameterByName('title')+"/"+getParameterByName('issn_isbn')+"/"+getParameterByName('total_Coauthors')+"/"+getParameterByName('peer_reviewed')+"/"+getParameterByName('main_author')+"/"+getParameterByName('api_score')).then
+  (
+    function(res){
+      $scope.data = res.data;
+    },
+    function (res) {
+      $scope.name = "error"+res.status+" ";
+    }
+    );
+
+
+
+
+      $http.get("/data/session").then
+      (
+        function(res){
+          $scope.session_data = res.data;
+
+       
+          
+        },
+        function (res) {
+          $scope.name = "error"+res.status+" ";
+
+        }
+        );
+
+
+
+
+
+});
+</script>
+<!--Closing of anglar js div  -->
+</div>
+
+
+
+
+
+
+
+<script>
+
+function makeupdate()
+{
+
+
+
+ if(document.getElementById("api").value  == "")
+{
+  document.getElementById("api").value = 0
+} 
+if(document.getElementById("coauthors").value  == "")
+{
+  document.getElementById("coauthors").value = 0
+} 
+if(document.getElementById("main").value  == "")
+{
+  document.getElementById("main").value = "default"
+} 
+if(document.getElementById("peer").value  == "")
+{
+  document.getElementById("peer").value = "default"
+} 
+if(document.getElementById("issn").value  == "")
+{
+  document.getElementById("issn").value = 0
+} 
+
+
+ document.cookie = "isupdate=true"
+ document.getElementById("isupdate").value = "true";
+
+}
+
+
+
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length,c.length);
+        }
+    }
+    return "";
+}
+
+
+
+
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+function ondropdownchange()
+{
+  var e = document.getElementById("session");
+var strUser = e.options[e.selectedIndex].text;
+document.getElementById("ses").value = strUser;
+
+}
+
+
+
+
+function load()
+{
+
+
+
+ document.cookie = "username=;";
+
+  if( getCookie("isupdate")==="true"){
+
+
+ document.cookie = "isupdate=true"
+ document.getElementById("isupdate").value = "true";
+
+
+setTimeout(function() {
+
+var a = document.getElementById("sess").value;
+b = document.getElementById("session");
+
+document.getElementById("ses").value = document.getElementById("sess").value
+setoption(b,a);
+var c = document.getElementById("sesso").value;
+d = document.getElementById("catt");
+
+setoptionbyval(d,c);
+
+
+
+function setoption(s,v)
+{
+
+
+
+    for ( var i = 0; i < s.options.length; i++ ) {
+      
+        if ( s.options[i].label == v ) {
+            s.options[i].selected = true;
+            return;
+        }
+    }
+}
+function setoptionbyval(s,v)
+{
+
+
+
+    for ( var i = 0; i < s.options.length; i++ ) {
+      //alert(s.options[i].label + "and" + v);
+        if ( s.options[i].value == v ) {
+            s.options[i].selected = true;
+            return;
+        }
+    }
+}
+ 
+   }, 500);
+
+
+
+ }
+  else
+  {
+   // alert(checkparam())
+
+ document.cookie = "isupdate=false"
+ document.getElementById("isupdate").value = "false";
+ //alert(document.cookie);
+
+  }
+    
+
+
+}
+function subclick()
+{
+
+
+
+
+  if(document.getElementById("api").value  == "")
+{
+  document.getElementById("api").value = 0
+} 
+if(document.getElementById("coauthors").value  == "")
+{
+  document.getElementById("coauthors").value = 0
+} 
+if(document.getElementById("main").value  == "")
+{
+  document.getElementById("main").value = "default"
+} 
+if(document.getElementById("peer").value  == "")
+{
+  document.getElementById("peer").value = "default"
+} 
+if(document.getElementById("issn").value  == "")
+{
+  document.getElementById("issn").value = 0
+} 
+
+
+
+
+
+
+
+  if(getCookie("isupdate")==="true"){
+     document.getElementById("isupdate").value = "true";
+  }
+  else
+  {
+    document.getElementById("isupdate").value = "false";
+  }
+ document.cookie = "isupdate=false"
+ 
+ //alert(document.cookie);
+}
+
+
+
+
+
+</script>
+
+
+
+
+
+
+</script>
+</body>
+</html>

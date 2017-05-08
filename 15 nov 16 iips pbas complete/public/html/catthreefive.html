@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Welcome</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="w.css">
+  <style>
+.button {
+    display: block;
+    width: 115px;
+    height: 25px;
+    background: #4E9CAF;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+}
+  </style>
+</head>
+<body onload = load()>
+      <a href = "/mainmenu"><h4>Go Back To Home</h4></a>
+  <script src="ang.js"></script>
+  <div ng-app="myApp" ng-controller="customersCtrl">
+   
+   </br>
+   </br>
+	<h1 align = "center">University of Indore
+Devi Ahilya University, Indore
+</h1>
+<h2 align = "center">Annual Self-Assessment for the Performance Based Appraisal System (PBAS)</h2>
+<h3 align = "center"><b>CATEGORY   III : RESEARCH, PUBLICATION AND ACADEMIC CONTRIBUTION</b></h3>
+	 </br>
+<form class = "form-horizontal" role = "form" method = "post" action = "/catthreefive">
+       <div class = "form-group">
+<input type = "hidden" id = "mytext" name = "userid"></input>
+<input type = "hidden" id = "isupdate" name = "isupdateid" value = "false"></input>    
+
+
+           <label for = "Name" class = "col-sm-2 control-label">Session</label>
+              
+                <div class = "col-sm-8">
+          <select required ng-model="selectedCar" id = "session" class="form-control" name = "session_dropdown" ng-options="y.displaylike for (x, y) in session_data" onchange = "ondropdownchange()" >
+          </select> 
+
+          </div>
+          </div>
+<input type = "hidden" id = "ses" ng-model = 'selectedCar.displaylike' name = "session"></input>
+<input type = "hidden"  value  = {{data[0].session}} id = "sess"></input>
+
+
+
+    
+   <div class = "form-group">
+      <label for = "CATEGORY  " required class = "col-sm-2 control-label">Degree</label>
+     <div class = "col-sm-8">
+    
+    <select class="form-control" name = "degree" required id = "cat">
+    <option value="M.Phil_or_equivalent">M.Phil or equivalent </option>
+      <option value="Ph.D_or_equivalent">Ph.D or equivalent </option>
+      <option value="Other">Other</option>
+       
+    </select>    
+      </div>
+   </div>  
+<input type = "hidden"  value  = {{data[0].degree}} id = "cathiddentb"></input>
+
+
+    <div class="col-md-9 col-md-offset-2">
+      
+      
+   
+
+
+
+
+
+
+       <div class = "form-group">
+            <label for = "Number_Enrolled" require class = "col-sm-2 control-label">Number Enrolled
+        </label>
+           <div class = "col-sm-8">
+               <input type = "number" require class = "form-control" name = "Number_Enrolled" placeholder = "Enter Number Enrolled" id = "number" value  = {{data[0].Number_Enrolled}}>
+            </div>
+      </div>
+
+      <div class = "form-group">
+            <label for = "Thesis_Submitted" require class = "col-sm-2 control-label">Thesis Submitted 
+
+        </label>
+           <div class = "col-sm-8">
+               <input type = "text" require class = "form-control" name = "Thesis_Submitted" placeholder = "Enter Thesis Submitted " id = "thesis" value  = {{data[0].Thesis_Submitted}}>
+            </div>
+      </div>      
+
+       
+      <div class = "form-group">
+            <label for = "Degree_awarded" require class = "col-sm-2 control-label">Degree awarded
+
+        </label>
+           <div class = "col-sm-8">
+               <input type = "text" require class = "form-control" name = "Degree_awarded" placeholder = "Degree awarded" id = "degree" value  = {{data[0].Degree_awarded}}>
+            </div>
+      </div>  
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class = "form-group">
+            <label for = "API Score" require class = "col-sm-2 control-label">API Score</label>
+           <div class = "col-sm-8">
+               <input type = "number" require class = "form-control" name = "api_score" placeholder = "Enter API Score " id = "api" value  = {{data[0].api_score}}>
+            </div>
+      </div>  
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+   </br>
+   <div  class = "form-group">
+      <div class = "col-sm-offset-6 col-sm-3">
+         <button type = "submit" class = "btn btn-default" onclick = subclick() >Submit</button>
+        
+      </div>
+   </div>
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+  
+</form>
+</br>
+</br>
+
+<!-- starting table code -->
+
+<h3>Your Data</h3>
+</br>
+
+<label class="w3-label w3-text-blue"><b>Keyword</b></label>
+<input class="w3-input w3-border" type="text" ng-model="test" placeholder = "String To serch here">
+
+</br>
+
+
+
+
+
+
+
+<table  id ="tblCustomers"  class="w3-table w3-striped w3-bordered w3-border" style="width:auto" > 
+ <tr class="w3-light-grey w3-hover-red">
+     <th>Session</th>   
+    <th>degree</th>
+    <th>Number_Enrolled</th>
+    <th>Thesis_Submitted</th>
+    <th>Degree_awarded</th>
+    <th>api_score</th>
+    <th>Update</th>
+    <th>Delete</th>
+  
+
+ </tr>
+  <tr onclick="myFunction(this)"  class="w3-hover-blue" ng-repeat="x in names | filter:test">
+      <td>{{x.session}}</td>
+    <td>{{ x.degree}}</td>
+    <td>{{ x.Number_Enrolled }}</td>
+    <td>{{ x.Thesis_Submitted}}</td>
+    <td>{{ x.Degree_awarded }}</td>
+    <td>{{ x.api_score}}</td>
+
+
+
+<!-- 
+ <td><a ng-href="http://localhost:3000/html/home.html?val=" + {{x.telephone}}>Update</a></td> -->
+    <td><a ng-href="/updatecatthreefive/{{x.username}}/{{ x.degree }}/{{ x.Number_Enrolled}}/{{x.Thesis_Submitted}}/{{x.Degree_awarded }}/{{x.api_score }}" onclick = "makeupdate()" onclick = "updateclicked()">Update</a></td> 
+    <td><a ng-href="updatecatthreefive/{{x.username}}/{{ x.degree}}/{{ x.Number_Enrolled}}/{{ x.Thesis_Submitted}}/{{x.Degree_awarded }}/{{x.api_score}}" onclick="return confirm('Are you sure?')">Delete</a></td> 
+ <!--    <td><a href = "http://localhost:3000/html/home.html?val=" + {{x.telephone}} >update </a></td> -->
+
+  
+  </tr>
+</table>
+</br>
+</br>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('customersCtrl', function($scope, $http) {
+  /*  $http.get("http://localhost:3000/data/viewdatacatthreefive")*/
+      $http.get("/data/viewdatacatthreefive")
+    .then(function (response) {$scope.names = response.data;});
+    app.toDate = function(h) {
+    return ("h")
+  };
+
+
+
+  $http.get("/data/viewcatthreefivedata/"+getParameterByName('username')+"/"+getParameterByName('degree')+"/"+getParameterByName('Number_Enrolled')+"/"+getParameterByName('Thesis_Submitted')+"/"+getParameterByName('Degree_awarded')+"/"+getParameterByName('api_score')).then
+  (
+    function(res){
+      $scope.data = res.data;
+    },
+    function (res) {
+      $scope.name = "error"+res.status+" ";
+    }
+    );
+
+
+
+
+      $http.get("/data/session").then
+      (
+        function(res){
+          $scope.session_data = res.data;
+
+       
+          
+        },
+        function (res) {
+          $scope.name = "error"+res.status+" ";
+
+        }
+        );
+
+
+
+
+
+});
+</script>
+<!--Closing of anglar js div  -->
+</div>
+
+
+
+
+
+
+
+<script>
+
+function makeupdate()
+{
+
+
+ document.cookie = "isupdate=true"
+ document.getElementById("isupdate").value = "true";
+
+
+
+  if(document.getElementById("api").value  == "")
+{
+  document.getElementById("api").value = 0
+} 
+if(document.getElementById("number").value  == "")
+{
+  document.getElementById("number").value = 0
+} 
+if(document.getElementById("thesis").value  == "")
+{
+  document.getElementById("thesis").value = "default"
+} 
+if(document.getElementById("degree").value  == "")
+{
+  document.getElementById("degree").value = "default"
+} 
+
+
+
+
+}
+
+
+
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length,c.length);
+        }
+    }
+    return "";
+}
+
+
+
+
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+function ondropdownchange()
+{
+  var e = document.getElementById("session");
+var strUser = e.options[e.selectedIndex].text;
+document.getElementById("ses").value = strUser;
+
+}
+
+
+
+
+function load()
+{
+
+
+
+ document.cookie = "username=;";
+//alert(getCookie("isupdate"));
+  if( getCookie("isupdate")==="true"){
+
+
+ document.cookie = "isupdate=true"
+ document.getElementById("isupdate").value = "true";
+
+
+setTimeout(function() {
+
+var a = document.getElementById("sess").value;
+b = document.getElementById("session");
+
+document.getElementById("ses").value = document.getElementById("sess").value
+setoption(b,a);
+var c = document.getElementById("cathiddentb").value;
+d = document.getElementById("cat");
+
+setoptionbyval(d,c);
+
+
+
+function setoption(s,v)
+{
+
+
+
+    for ( var i = 0; i < s.options.length; i++ ) {
+      
+        if ( s.options[i].label == v ) {
+            s.options[i].selected = true;
+            return;
+        }
+    }
+}
+function setoptionbyval(s,v)
+{
+
+
+
+    for ( var i = 0; i < s.options.length; i++ ) {
+      //alert(s.options[i].label + "and" + v);
+        if ( s.options[i].value == v ) {
+            s.options[i].selected = true;
+            return;
+        }
+    }
+}
+ 
+   }, 500);
+
+
+
+ }
+  else
+  {
+   // alert(checkparam())
+
+ document.cookie = "isupdate=false"
+ document.getElementById("isupdate").value = "false";
+ //alert(document.cookie);
+
+  }
+    
+
+
+}
+function subclick()
+{
+
+
+
+
+  if(document.getElementById("api").value  == "")
+{
+  document.getElementById("api").value = 0
+} 
+if(document.getElementById("number").value  == "")
+{
+  document.getElementById("number").value = 0
+} 
+if(document.getElementById("thesis").value  == "")
+{
+  document.getElementById("thesis").value = "default"
+} 
+if(document.getElementById("degree").value  == "")
+{
+  document.getElementById("degree").value = "default"
+} 
+
+
+
+
+
+
+
+  if(getCookie("isupdate")==="true"){
+     document.getElementById("isupdate").value = "true";
+  }
+  else
+  {
+    document.getElementById("isupdate").value = "false";
+  }
+ document.cookie = "isupdate=false"
+ 
+ //alert(document.cookie);
+}
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

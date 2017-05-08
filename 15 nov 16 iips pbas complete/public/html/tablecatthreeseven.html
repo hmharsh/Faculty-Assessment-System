@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<script src="ang.js"></script>
+
+
+
+<script>
+function makeupdate(){
+ document.cookie = "isupdate=true"
+}
+
+
+function myFunction(x) {
+   //alert("Row index is: " + x.rowIndex);
+  // alert("contact of selected entity" + document.getElementById("tblCustomers").rows[x.rowIndex].cells[7].innerHTML);
+   window.location = "/"+document.getElementById("tblCustomers").rows[x.rowIndex].cells[7].innerHTML;
+
+}
+
+        var tbl = document.getElementById("tblCustomers");
+        if (tbl != null) {
+            for (var i = 0; i < tbl.rows.length; i++) {
+                for (var j = 0; j < tbl.rows[i].cells.length; j++)
+                    tbl.rows[i].cells[j].onclick = function () { getval(this); };
+            }
+        }
+ 
+        function getval(cel) {
+            alert(cel.innerHTML);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+<head>
+<style>
+#myDIV {
+   
+    width: 2500px;
+    overflow: auto;
+}
+
+
+</style>
+<link rel="stylesheet" href="w.css">
+</head>
+<body class="w3-container">
+
+<div ng-app="myApp" ng-controller="customersCtrl">
+	
+<br/>
+<br/>
+<form action="/downloadcatthreeseven">
+<label class="w3-label w3-text-blue"><b>Keyword</b></label>
+<input class="w3-input w3-border" type="text" ng-model="test">
+
+<!-- <input type = "button" value = "Search" class="w3-btn w3-blue"></input> -->
+<script>
+function date() {
+    return (1)         
+}
+</script>
+</script>
+<script type="text/javascript">
+    function CountRows() {
+       alert(document.getElementById("tblCustomers").rows.length - 1);
+      
+    }
+</script>
+
+<input type = "submit" class="w3-btn w3-blue" value = "Download all"></input>
+	
+<br/>
+<br/>
+<br/>
+<input type = "button" onclick = "CountRows()" value = "Total"> </input>
+<div id="myDIV">
+    <div id="result"> </div>
+     Sort by:  </label><input ng-model="sort" type="text">
+<table  id ="tblCustomers"  class="w3-table w3-striped w3-bordered w3-border" style="width:auto" > 
+<tr class="w3-light-grey w3-hover-red">
+       <th>username</th>
+     <th>Session</th>   
+    <th>category</th>
+    <th>title</th>
+    <th>Title_of_Conference_Seminar</th>
+    <th>date_event</th>
+    <th>Organised_by</th>
+    <th>Whether_Internation_National_State</th>
+    <th>api_score</th>
+    <th>Update</th>
+    <th>Delete</th>
+  
+
+ </tr>
+  <tr onclick="myFunction(this)"  class="w3-hover-blue" ng-repeat="x in names | filter:test | orderBy:sort">
+      <td>{{x.username}}</td>
+      <td>{{x.session}}</td>
+    <td>{{x.category}}</td>
+    <td>{{x.title}}</td>
+    <td>{{x.Title_of_Conference_Seminar}}</td>
+    <td>{{x.date_event }}</td>
+    <td>{{x.Organised_by}}</td>
+    <td>{{x.Whether_Internation_National_State}}</td>
+    <td>{{x.api_score}}</td>
+
+
+
+<!-- 
+ <td><a ng-href="http://localhost:3000/html/home.html?val=" + {{x.telephone}}>Update</a></td> -->
+    <td><a ng-href="/updatecatthreeseven/{{x.username}}/{{ x.category }}/{{ x.title}}/{{ x.Title_of_Conference_Seminar}}/{{ x.date_event}}/{{ x.Organised_by }}/{{ x.Whether_Internation_National_State}}/{{ x.api_score }}" onclick = "makeupdate()" onclick = "updateclicked()">Update</a></td> 
+    <td><a ng-href="updatecatthreeseven/{{x.username}}/{{ x.category }}/{{ x.title}}/{{ x.Title_of_Conference_Seminar}}/{{ x.date_event}}/{{ x.Organised_by }}/{{ x.Whether_Internation_National_State}}/{{ x.api_score }}" >Delete</a></td> 
+ <!--    <td><a href = "http://localhost:3000/html/home.html?val=" + {{x.telephone}} >update </a></td> -->
+
+  
+  </tr>
+  
+</table>
+</div>
+
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('customersCtrl', function($scope, $http) {
+    $http.get("/data/viewalldatacatthreeseven")
+    
+    .then(function (response) {$scope.names = response.data;});
+    app.toDate = function(h) {
+    return ("h")
+  };
+});
+</script>
+
+
+</body>
+</html>
+
+
+<!-- (within 100)
+rapofit (multivitamin) : 20 (98) (calsul)
+cherol : 10 (55) (tablet)
+ -->
+
+

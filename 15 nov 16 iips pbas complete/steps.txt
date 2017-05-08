@@ -1,0 +1,16 @@
+complete installation methode:
+1st install nodejs and mongodb (confirm installation by running command "node" and "mongo" these command should start node and mongo prompt respectively)
+install robomongo for ease on database operation 
+1> copy entire project into a particular folder and on the same path go to command prompt (administrator mode)
+2> run commande "npm install" this migth take long time to install all needed modules 
+3> (make sure mongodb server starts running delete it's default database named test)Now go to the folder database dump also inside dump folder and on that path by cmd and run command  "mongorestore --db test"
+4>to confirm that database is copied properly either check name of collections(tables) as accounts,catthreeone etc by robomongo or by commands
+	>mongo(start mongo prompt)
+	>show dbs(test should be there)
+	>use test(switch to database test)
+	>show collections (show all collection(table) list)
+5>now after successfully run of command "npm install"  run "npm start" on the same location
+6> now go to localhost:3000 to start project (make sure internet connection is there)
+Admin username : hmharsh3
+ Admin Password : har$hit!^
+

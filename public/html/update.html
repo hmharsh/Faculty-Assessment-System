@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Welcome</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="../bower_components/angular/angular.min.js"></script>
+<script src="../bower_components/angular-route/angular-route.min.js"></script>
+<script src="../bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+
+  <style>
+.button {
+    display: block;
+    width: 115px;
+    height: 25px;
+    background: #4E9CAF;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+}
+  </style>
+</head>
+<body onload = "a()">
+   </br>
+	<h1 align = "center">University of Indore
+Devi Ahilya University, Indore
+</h1>
+<h2 align = "center">Annual Self-Assessment for the Performance Based Appraisal System (PBAS)</h2>
+<h3 align = "center"><b>PART A : GENERAL INFORMATION </b></h3>
+	 </br>
+   <div ng-app="myApp" ng-controller="customersCtrl">
+<form class = "form-horizontal" role = "form" method = "post" action = "/updatedata">
+
+
+
+
+
+
+
+
+   <div class = "form-group">
+      <label for = "Name" class = "col-sm-2 control-label">Name</label>
+		
+      <div class = "col-sm-8">
+         <input type = "text" require class = "form-control" name = "name"  value  = {{data[0].name}}>
+      </div>
+   </div>
+   
+   <div class = "form-group">
+      <label for = "Father’s Name" class = "col-sm-2 control-label">Father’s Name</label>
+		
+      <div class = "col-sm-8">
+         <input type = "text" require class = "form-control" name = "father" value  = {{data[0].father}}>
+      </div>
+   </div>
+   <div class = "form-group">
+      <label for = "Mother’s Name" class = "col-sm-2 control-label"> Mother’s Name</label>
+		
+      <div class = "col-sm-8">
+         <input type = "text" require class = "form-control" name = "mother" value  = {{data[0].mother}}>
+      </div>
+   </div>  
+
+
+
+
+   <div class = "form-group">
+      <label for = "Department" class = "col-sm-2 control-label"> Department</label>
+		
+      <div class = "col-sm-8">
+         <input type = "text" require class = "form-control" name = "department" value  = {{data[0].department}}>
+      </div>
+   </div>  
+
+
+
+   <div class = "form-group">
+      <label for = "Current Designation" require class = "col-sm-2 control-label">Current Designation </label>
+		
+      <div class = "col-sm-8">
+         <input type = "text" require class = "form-control" name = "designation" value  = {{data[0].designation}}>
+      </div>
+   </div>  
+
+   <div class = "form-group">
+      <label for = "Grade Pay" require class = "col-sm-2 control-label"> Grade Pay</label>
+		
+      <div class = "col-sm-8">
+         <input type = "text" require class = "form-control" name = "pay" value  = {{data[0].pay}}>
+      </div>
+   </div>  
+
+
+
+
+
+
+   <div class = "form-group">
+      <label for = "Date of last Promotion" require class = "col-sm-2 control-label"> Date of last Promotion</label>
+      <div class = "col-sm-8">
+         <input type = "date" require class = "form-control" name = "last_promo" value  = {{data[0].last_promo}} >
+      </div>
+   </div>  
+
+
+
+
+   <div class = "form-group">
+      <label for = "Address for correspondence" require class = "col-sm-2 control-label"> Address for correspondence</label>
+     <div class = "col-sm-8">
+        <input type = "text" require class = "form-control" name = "caddress" value  = {{data[0].caddress}}>
+      </div>
+   </div>  
+
+
+   <div class = "form-group">
+      <label for = "Address for correspondence" require class = "col-sm-2 control-label">Permanent  Address</label>
+     <div class = "col-sm-8">
+        <input type = "text" require class = "form-control" name = "paddress" value  = {{data[0].paddress}} >
+      </div>
+   </div>  
+      <div class = "form-group">
+      <label for = "Telephone No" require class = "col-sm-2 control-label">Telephone No</label>
+     <div class = "col-sm-8">
+     <input type = "number" require class = "form-control" name = "telephone" value  = {{data[0].telephone}}  >
+      </div>
+   </div>  
+
+   <div class = "form-group">
+      <label for = "email" require class = "col-sm-2 control-label">E-mail</label>
+     <div class = "col-sm-8">
+         <input type = "email" require class = "form-control" name = "email" value  = {{data[0].email}}>
+      </div>
+   </div>  
+
+
+
+
+
+
+
+
+
+
+
+
+
+	 </br>
+<h3 align = "center"><b>CATEGORY  II </b></h3>
+	 </br>
+
+
+
+  	
+   <div class = "form-group">
+      <label for = "CATEGORY  " require class = "col-sm-2 control-label">CATEGORY  </label>
+     <div class = "col-sm-8">
+    
+    	<select class="form-control" name = "category" require value  = {{data[0].category}}>
+		  <option value="CO-CURRICULAR">CO-CURRICULAR</option>
+		  <option value="EXTENSION">EXTENSION</option>
+		  <option value="PROFESSIONAL DEVELOPMENT  RELATED  ACTIVITIES">PROFESSIONAL DEVELOPMENT  RELATED  ACTIVITIES </option>
+		</select>
+      </div>
+   </div>  
+
+
+
+    <div class="col-md-9 col-md-offset-2">
+    	
+	  	
+		   <div class = "form-group">
+		      <label for = "Type of Activity  " require class = "col-sm-2 control-label">Type of Activity  </label>
+		     <div class = "col-sm-8">
+		    
+		    	<select class="form-control" require name = "activity" value  = {{data[0].activity}}>
+				  <option value="Extension">Extension</option>
+				  <option value="Co-curricular">Co-curricular </option>
+				  <option value="Field based activities">Field based activities</option>
+				</select>
+		      </div>
+		   </div>  
+
+
+
+
+
+
+		    <div class = "form-group">
+			      <label for = "Average Hrs/week" require class = "col-sm-2 control-label">Average Hrs/week</label>
+			     <div class = "col-sm-8">
+			         <input type = "number" require class = "form-control" name = "avg_hrs" value  = {{data[0].avg_hrs}}>
+			      </div>
+			</div>  
+		    <div class = "form-group">
+			      <label for = "API Score" require class = "col-sm-2 control-label">API Score</label>
+			     <div class = "col-sm-8">
+			         <input type = "number" require class = "form-control" name = "api_score" value  = {{data[0].api_score}}>
+			      </div>
+			</div>  
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+   </br>
+   <div  class = "form-group">
+      <div class = "col-sm-offset-6 col-sm-3">
+         <button type = "submit" class = "btn btn-default">Update</button>
+       <!--   <a href = "/table" class = "butto">Tabular View</a> -->
+      </div>
+   </div>
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+	
+</form>
+
+</div>
+<script>
+/*var app = angular.module('myApp', []);
+app.controller('customersCtrl', function($scope,$http) {
+   
+    $http.get("http://localhost:3000/data/viewdata")
+    
+    .then(function (response) {$scope.data = response.data;});
+
+
+  };
+});
+*/
+
+
+
+
+var app = angular.module('myApp', [])
+app.controller('customersCtrl',function($scope,$http){
+
+  $http.get("http://localhost:3000/data/viewdata/"+getParameterByName('val')).then
+  (
+    function(res){
+      $scope.data = res.data;
+    },
+    function (res) {
+      $scope.name = "error"+res.status+" ";
+    }
+    );
+});
+
+
+
+</script>
+<script>
+
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+function a(){
+  var v = getParameterByName('val')
+  document.getElementById("mytext").value = v;
+
+}
+</script>
+
+
+</body>
+</html>
